@@ -10,15 +10,13 @@ class WeatherApi {
 
     private var client: OkHttpClient = OkHttpClient()
 
-    fun getWeatherFromNetwork(url: String): WeatherResponse {
+    fun getWeatherFromNetworkAndDecode(url: String): WeatherResponse {
         val request: Request =
             Request.Builder().url(url)
                 .build()
         val response = client.newCall(request).execute()
         val responseString = response.body!!.string()
 
-        val serializedResponse = Json.decodeFromString<WeatherResponse>(responseString)
-
-        return serializedResponse
+        return Json.decodeFromString(responseString)
     }
 }
