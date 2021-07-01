@@ -8,10 +8,10 @@ import com.example.weathertest.network.NetworkUtils
 import com.example.weathertest.view.WeatherView
 
 class MainActivity : AppCompatActivity(), WeatherView {
-
     private lateinit var tempView: TextView
     private lateinit var descriptionView: TextView
     private lateinit var cityView: TextView
+    private val networkUtils = NetworkUtils()
 
     private lateinit var weatherController: WeatherController
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), WeatherView {
         setContentView(R.layout.activity_main)
 
         val city = "Austin"
-        val url = NetworkUtils.getWeatherApiUrl(city)
+        val url = networkUtils.getApiUrl(city)
 
         cityView = findViewById(R.id.city)
         tempView = findViewById(R.id.temperature)

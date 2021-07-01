@@ -28,11 +28,11 @@ class WeatherController {
         }
     }
 
-    fun updateView(weatherResponse: WeatherResponse) {
-        weatherView?.let {
-            it.getCityView().text = weatherResponse.name
-            it.getTemperatureView().text = weatherResponse.main.temp.toString()
-            it.getDescriptionView().text = weatherResponse.weather[0].description
+    private fun updateView(weatherResponse: WeatherResponse) {
+        weatherView?.let { wv ->
+            wv.getCityView().text = weatherResponse.name
+            wv.getTemperatureView().text = weatherResponse.main.temp.toString()
+            wv.getDescriptionView().text = weatherResponse.weather[0].description
         }
     }
 
